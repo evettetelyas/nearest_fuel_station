@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "google api service" do
     it "shows directions from destination to origin" do
         service = GoogleApiService.new
-        data = service.directions_from_turing("Seventeenth Street Plaza")
+        data = service.directions("Turing school of software and design", "Seventeenth Street Plaza")
 		route = data[:routes].first[:legs].first
 
 		expect(route).to have_key(:distance)

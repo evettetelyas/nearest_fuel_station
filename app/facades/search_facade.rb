@@ -1,5 +1,9 @@
 class SearchFacade
 
+	def initialize(location)
+		@location = location
+	end
+
 	def google_service
 		GoogleApiService.new
 	end
@@ -9,7 +13,7 @@ class SearchFacade
 	end
 
 	def nearest_station_data
-		nrel_service.nearest_turing_elec_station
+		nrel_service.nearest_elec_station(@location)
 	end
 
 	def nearest_station
@@ -17,7 +21,7 @@ class SearchFacade
 	end
 
 	def direction_data
-		google_service.directions_from_turing(nearest_station.name)
+		google_service.directions(@location, nearest_station.address)
 	end
 
 	def direction

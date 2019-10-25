@@ -1,8 +1,8 @@
 class GoogleApiService
 
-	def directions_from_turing(destination)
+	def directions(origin, destination)
 		data = conn.get("json") do |req|
-      req.params[:origin] = 'Turing School of Software and Design'
+      req.params[:origin] = origin
       req.params[:destination] = destination
 		end
 		JSON.parse(data.body, symbolize_names: true)
