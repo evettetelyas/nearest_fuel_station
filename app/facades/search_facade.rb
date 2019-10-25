@@ -1,8 +1,8 @@
 class SearchFacade
 
-	# def google_service
-	# 	GoogleApiService.new
-	# end
+	def google_service
+		GoogleApiService.new
+	end
 
 	def nrel_service
 		NrelApiService.new
@@ -13,7 +13,14 @@ class SearchFacade
 	end
 
 	def nearest_station
-		binding.pry
 		Station.new(nearest_station_data)
+	end
+
+	def direction_data
+		google_service.directions_from_turing(nearest_station.name)
+	end
+
+	def direction
+		Direction.new(direction_data)
 	end
 end

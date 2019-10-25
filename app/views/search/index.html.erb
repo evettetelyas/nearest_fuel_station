@@ -1,0 +1,12 @@
+<center>
+	<h1>closest station</h1>
+	<p>name: <%= facade.nearest_station.name %></p>
+	<p>address: <%= facade.nearest_station.address %></p>
+	<p>fuel type: <%= facade.nearest_station.fuel_type %></p>
+	<p>access times: <%= facade.nearest_station.access_times %></p>
+	<br><br>
+	<h1>directions from <%= facade.direction.origin %></h1>
+	<p>distance: <%= facade.direction.distance %></p>
+	<p>travel time: <%= facade.direction.travel_time %></p>
+	<p>directions: <%= facade.direction.instructions.html_safe %></p>
+</center>
